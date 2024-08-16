@@ -1,6 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
+
+'use client'
+import { useRef, useEffect, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
-import { Image, useFBO, useTexture } from "@react-three/drei";
+import { useFBO, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import useMouse from "@hooks/useMouse";
 import useDimension from "@hooks/useDimension";
@@ -24,7 +26,7 @@ export default function Model() {
   const scene = new THREE.Scene();
   const max = 100;
 
-  const uniforms = useRef({
+  const uniforms = useRef<any>({
     uDisplacement: { value: null },
     uTexture: { value: null },
     winResolution: {
@@ -142,26 +144,6 @@ export default function Model() {
     image1.scale.x = viewport.width;
     image1.scale.y = viewport.height;
     group.add(image1);
-
-    // const texture2 = useTexture("/images/picture2.jpeg");
-    // const material2 = new THREE.MeshBasicMaterial({ map: texture2 });
-    // const image2 = new THREE.Mesh(geometry, material2);
-    // image2.position.x = 0 * viewport.width;
-    // image2.position.y = 0;
-    // image2.position.z = 1;
-    // image2.scale.x = viewport.width / 5;
-    // image2.scale.y = viewport.width / 4;
-    // group.add(image2);
-
-    // const texture3 = useTexture("/images/picture3.jpeg");
-    // const material3 = new THREE.MeshBasicMaterial({ map: texture3 });
-    // const image3 = new THREE.Mesh(geometry, material3);
-    // image3.position.x = 0.25 * viewport.width;
-    // image3.position.y = 0;
-    // image3.position.z = 1;
-    // image3.scale.x = viewport.width / 5;
-    // image3.scale.y = viewport.width / 4;
-    // group.add(image3);
 
     scene.add(group);
     return { scene, camera };
