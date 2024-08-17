@@ -43,7 +43,7 @@ export default function Model() {
       <mesh
         key={i}
         position={[0, 0, 0]}
-         // @ts-ignore
+        // @ts-ignore
         ref={(el) => ((meshRefs.current)[i] = el)}
         rotation={[0, 0, Math.random()]}
         visible={false}
@@ -55,7 +55,7 @@ export default function Model() {
     setMeshes(generatedMeshes);
   }, [texture]);
 
-  function setNewWave(x:number, y:number, currentWave: number) {
+  function setNewWave(x: number, y: number, currentWave: number) {
     const mesh = meshRefs.current?.[currentWave];
     if (mesh) {
       mesh.position.x = x;
@@ -121,7 +121,7 @@ export default function Model() {
     }
   }, 1);
 
-  function Images(viewport:{width:number, height:number}) {
+  function Images(viewport: { width: number, height: number }) {
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(
       viewport.width / -2,
@@ -143,6 +143,23 @@ export default function Model() {
     image1.position.z = 1;
     image1.scale.x = viewport.width;
     image1.scale.y = viewport.height;
+
+    // 計算圖片的寬高比例
+    const imageAspect = texture1.image.width / texture1.image.height;
+    const viewportAspect = viewport.width / viewport.height;
+
+    if (imageAspect > viewportAspect) {
+      // 如果圖片寬高比大於視口寬高比，則根據高度來縮放
+      image1.scale.x = viewport.height * imageAspect;
+      image1.scale.y = viewport.height;
+    } else {
+      // 否則根據寬度來縮放
+      image1.scale.x = viewport.width;
+      image1.scale.y = viewport.width / imageAspect;
+    }
+
+    image1.position.set(0, 0, 1);
+
     group.add(image1);
 
     scene.add(group);
