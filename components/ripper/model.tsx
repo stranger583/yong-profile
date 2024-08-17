@@ -13,10 +13,9 @@ import fish from "@public/images/fish.jpg";
 
 export default function Model() {
   const { viewport } = useThree();
-  // const imageTexture = useTexture("/images/picture1.jpeg");
   const texture = useTexture(brush.src);
-  const meshRefs = useRef<any>([]);
-  const [meshes, setMeshes] = useState([]);
+  const meshRefs = useRef<THREE.Mesh[]>([]);
+  const [meshes, setMeshes] = useState<JSX.Element[]>([]);
   const mouse = useMouse();
   const device = useDimension();
   const [prevMouse, setPrevMouse] = useState({ x: 0, y: 0 });
@@ -44,7 +43,8 @@ export default function Model() {
       <mesh
         key={i}
         position={[0, 0, 0]}
-        ref={(el) => (meshRefs.current[i] = el)}
+         // @ts-ignore
+        ref={(el) => ((meshRefs.current)[i] = el)}
         rotation={[0, 0, Math.random()]}
         visible={false}
       >
@@ -55,19 +55,19 @@ export default function Model() {
     setMeshes(generatedMeshes);
   }, [texture]);
 
-  function setNewWave(x, y, currentWave) {
-    const mesh = meshRefs.current[currentWave];
+  function setNewWave(x:number, y:number, currentWave: number) {
+    const mesh = meshRefs.current?.[currentWave];
     if (mesh) {
       mesh.position.x = x;
       mesh.position.y = y;
       mesh.visible = true;
-      mesh.material.opacity = 1;
+      (mesh.material as THREE.Material).opacity = 1;
       mesh.scale.x = 1.75;
       mesh.scale.y = 1.75;
     }
   }
 
-  function trackMousePos(x, y) {
+  function trackMousePos(x: number, y: number) {
     if (Math.abs(x - prevMouse.x) > 0.1 || Math.abs(y - prevMouse.y) > 0.1) {
       setCurrentWave((currentWave + 1) % max);
       setNewWave(x, y, currentWave);
@@ -79,10 +79,10 @@ export default function Model() {
     const x = mouse.x - device.width / 2;
     const y = -mouse.y + device.height / 2;
     trackMousePos(x, y);
-    meshRefs.current.forEach((mesh) => {
+    meshRefs.current?.forEach((mesh) => {
       if (mesh.visible) {
         mesh.rotation.z += 0.025;
-        mesh.material.opacity *= 0.95;
+        (mesh.material as THREE.Material).opacity *= 0.95;
         mesh.scale.x = 0.98 * mesh.scale.x + 0.155;
         mesh.scale.y = 0.98 * mesh.scale.y + 0.155;
       }
@@ -94,13 +94,13 @@ export default function Model() {
       // Render to base texture with meshes
       gl.setRenderTarget(fboBase);
       gl.clear();
-      meshRefs.current.forEach((mesh) => {
+      meshRefs.current?.forEach((mesh) => {
         if (mesh.visible) {
           scene.add(mesh);
         }
       });
       gl.render(scene, camera);
-      meshRefs.current.forEach((mesh) => {
+      meshRefs.current?.forEach((mesh) => {
         if (mesh.visible) {
           scene.remove(mesh);
         }
@@ -121,7 +121,7 @@ export default function Model() {
     }
   }, 1);
 
-  function Images(viewport) {
+  function Images(viewport:{width:number, height:number}) {
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(
       viewport.width / -2,
@@ -152,11 +152,9 @@ export default function Model() {
   return (
     <group>
       {meshes}
-      {/* <Images /> */}
       <mesh>
         <planeGeometry args={[device.width, device.height, 1, 1]} />
         <shaderMaterial
-          args={[device.width / 2, device.height / 2]}
           vertexShader={vertex}
           fragmentShader={fragment}
           transparent={true}
