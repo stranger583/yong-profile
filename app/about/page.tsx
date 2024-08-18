@@ -58,7 +58,9 @@ function page() {
             <div className="w-full after:block after:border-b after:border-secondaryText after:my-10">
               <div className="mb-6">about</div>
               <p className="">
-                As a passionate front-end engineer, I specialize in creating responsive and user-friendly web applications. My expertise lies in modern JavaScript frameworks, particularly React and Next.js, complemented by my proficiency in Tailwind CSS for efficient styling. I'm dedicated to crafting clean, performant code and staying updated with the latest web technologies to deliver exceptional user experiences.
+                {`
+                  As a passionate front-end engineer, I specialize in creating responsive and user-friendly web applications. My expertise lies in modern JavaScript frameworks, particularly React and Next.js, complemented by my proficiency in Tailwind CSS for efficient styling. I'm dedicated to crafting clean, performant code and staying updated with the latest web technologies to deliver exceptional user experiences.
+                `}
               </p>
             </div>
             <div>
@@ -70,7 +72,9 @@ function page() {
                     Lion Travel B2C Flight
                   </p>
                   <p>
-                    As the leader of the F2E flight ticket team at Lion Travel, I oversee the development and maintenance of the ticketing system. By establishing a private repository and adopting the most suitable technologies, I have significantly improved development efficiency.
+                    {`
+                      As the leader of the F2E flight ticket team at Lion Travel, I oversee the development and maintenance of the ticketing system. By establishing a private repository and adopting the most suitable technologies, I have significantly improved development efficiency.
+                    `}
                   </p>
                 </div>
               </div>

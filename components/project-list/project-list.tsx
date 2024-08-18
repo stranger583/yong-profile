@@ -41,7 +41,9 @@ function ProjectList() {
                 </AccordionTrigger>
                 <AccordionContent className="my-4 tablet:my-5">
                     <p className="mb-4">
-                        Led the end-to-end frontend development of the Xin Flight project, from conception to completion. Assisted in implementing Server-Side Rendering ( SSR ) for the company's website, significantly enhancing user experience and SEO performance.
+                        {`
+                            Led the end-to-end frontend development of the Xin Flight project, from conception to completion. Assisted in implementing Server-Side Rendering ( SSR ) for the company's website, significantly enhancing user experience and SEO performance. 
+                        `}
                     </p>
                     <div className="flex gap-2 mb-4">
                         <div className="bg-tag rounded-full px-3 py-1 text-sm">NextJS</div>
@@ -97,7 +99,9 @@ function ProjectList() {
                 </AccordionTrigger>
                 <AccordionContent className="my-4 tablet:my-5">
                     <p className="mb-4">
-                        Led the frontend projects for Lion Travel's B2C products, focusing on the development and maintenance of the flight booking system, enhancing system performance and user experience.
+                        {`
+                            Led the frontend projects for Lion Travel's B2C products, focusing on the development and maintenance of the flight booking system, enhancing system performance and user experience.
+                        `}
                     </p>
                     <div className="flex gap-2 mb-4">
                         <div className="bg-tag rounded-full px-3 py-1 text-sm">React</div>
@@ -153,7 +157,9 @@ function ProjectList() {
                 </AccordionTrigger>
                 <AccordionContent className="my-4 tablet:my-5">
                     <p className="mb-4">
-                        Collaborated with the Xin Media team on feature development and page creation, contributing to a smooth user experience. Worked alongside designers and engineers to enhance product quality, helping to develop the website into a key project for the company.
+                        {`
+                            Collaborated with the Xin Media team on feature development and page creation, contributing to a smooth user experience. Worked alongside designers and engineers to enhance product quality, helping to develop the website into a key project for the company.
+                        `}
                     </p>
                     <div className="flex gap-2 mb-4">
                         <div className="bg-tag rounded-full px-3 py-1 text-sm">Next.js</div>

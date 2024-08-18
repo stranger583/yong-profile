@@ -31,7 +31,9 @@ export default function Home() {
             </div>
           </div>
           <p className="text-center tablet:text-left absolute bottom-5 w-10/12 text-sm text-wrap tablet:text-base tablet:max-w-[600px]">
-            A frontend developer skilled in React and Next.js, focused on implementing best practices to create exceptional websites.
+            {`
+              A frontend developer skilled in React and Next.js, focused on implementing best practices to create exceptional websites.
+            `}
           </p>
           <div className="flex max-w-40 flex-col items-center absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 tablet:translate-x-0 tablet:-translate-y-0 tablet:right-auto tablet:bottom-5 self-end">
             <Image
