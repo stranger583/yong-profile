@@ -45,7 +45,7 @@ export function AccordionContent({
     return (
         <Accordion.Content
             {...props}
-            className={cN(``, className)}
+            className={cN(`my-4 tablet:my-5`, className)}
         >
             {children}
         </Accordion.Content>
@@ -60,7 +60,7 @@ export function AccordionTrigger({
     return (
         <Accordion.AccordionTrigger
             {...props}
-            className={cN(``, className)}
+            className={cN(`flex items-center tablet:items-center w-full py-5 hover:bg-primary/20`, className)}
         >
             {children}
         </Accordion.AccordionTrigger>
@@ -75,7 +75,7 @@ export function AccordionItem({
     return (
         <Accordion.Item
             {...props}
-            className={cN(``, className)}
+            className={cN(`border-b border-border first:border-t w-full`, className)}
         >
             {children}
         </Accordion.Item>
