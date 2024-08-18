@@ -45,7 +45,7 @@ export function AccordionContent({
     return (
         <Accordion.Content
             {...props}
-            className={cN(`my-4 tablet:my-5`, className)}
+            className={cN(`my-4 tablet:my-5 overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down`, className)}
         >
             {children}
         </Accordion.Content>

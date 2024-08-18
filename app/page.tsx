@@ -4,38 +4,27 @@ import Image from "next/image";
 import fuji from "@public/images/fuji.jpg";
 import Link from "next/link";
 import ProjectList from "@components/project-list/project-list";
-
-
+import Header from "@components/header/header";
+import HomeTitle from "@components/home-title/home-title";
 const Ripper = dynamic(() => import("../components/ripper/ripper"), {
   loading: () => <p>Loading...</p>,
 });
 
 export default function Home() {
   return (
-    <div className="w-full pb-10">
-      <div className="w-full h-dvh relative mb-10">
-        <Ripper />
+    <>
+      <Ripper />
+      <div className="relative mx-auto min-h-dvh mb-5 tablet:mb-10 px-3">
+        <Header />
         <div className="flex flex-col items-center tablet:items-start max-w-[1280px] absolute -translate-x-1/2 top-0 left-1/2 w-full h-full z-10">
-          <div className="flex flex-col items-center tablet:items-center mx-auto max-w-[1280px] w-full py-6 mb-6 tablet:mb-10">
-            <div className="flex w-full justify-between">
-              <menu className="py-2 w-max self-end text-sm">
-                <Link href='./'>Yong</Link>
-              </menu>
-              <menu className="py-2 w-max self-end text-sm">Menu</menu>
-            </div>
-          </div>
-          <div className="my-10 tablet:my-0 p-2 tablet:p-0 tablet:h-16 flex text-base tablet:text-2xl tablet:items-center tablet:absolute tablet:-translate-x-1/2 tablet:-translate-y-1/2 top-1/2 left-1/2">
-            <div className="w-max px-2 border-r tablet:px-9">Yong Chen </div>
-            <div className="w-max px-2 tablet:block tablet:px-9">
-              Frond End Developer
-            </div>
-          </div>
-          <p className="text-center tablet:text-left absolute bottom-5 w-10/12 text-sm text-wrap tablet:text-base tablet:max-w-[600px]">
+          <HomeTitle />
+          <p className="tablet:ml-3 text-center tablet:text-left absolute bottom-5 w-10/12 text-sm text-wrap tablet:text-base tablet:max-w-[600px]">
             {`
-              A frontend developer skilled in React and Next.js, focused on implementing best practices to create exceptional websites.
-            `}
+                A frontend developer skilled in React and Next.js, focused on implementing best practices to create exceptional websites.
+              `}
           </p>
-          <div className="flex max-w-40 flex-col items-center absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 tablet:translate-x-0 tablet:-translate-y-0 tablet:right-auto tablet:bottom-5 self-end">
+          <div className="mx-3 flex max-w-40 flex-col items-center absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 tablet:translate-x-0 tablet:-translate-y-0 tablet:right-auto tablet:bottom-5 self-end">
+            <HomeTitle isMobile />
             <Image
               src={fuji}
               alt="fuji"
@@ -54,6 +43,6 @@ export default function Home() {
         </div>
       </div>
       <ProjectList />
-    </div>
+    </>
   );
 }

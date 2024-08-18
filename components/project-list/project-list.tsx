@@ -1,15 +1,14 @@
 "use client";
+import Link from "next/link";
+import Image from "next/image";
+import { type ProjectProps, type ProjectImageProps, Projects } from "@constants//projects"
 import {
     AccordionRoot,
     AccordionContent,
     AccordionTrigger,
     AccordionItem,
 } from "@components/ui/accordion";
-import Link from "next/link";
-import Image from "next/image";
-import fuji from "@public/images/fuji.jpg";
-import { type ProjectProps, type ProjectImageProps, Projects } from "@constants//projects"
-// import { type ProjectProps,type ProjectImageProps, Projects } from "@constants/projects"
+
 
 function ProjectList() {
     return (
@@ -20,7 +19,7 @@ function ProjectList() {
             collapsible
         >
             {
-                Projects.map((project:ProjectProps ) => (
+                Projects.map((project: ProjectProps) => (
                     <AccordionItem
                         key={project.title}
                         value={project.title}
@@ -35,13 +34,13 @@ function ProjectList() {
                                     <div className="text-secondaryText text-start">{project.compony} </div>
                                 </div>
                             </div>
-                            <Link
+                            {project.href.length !== 0 && <Link
                                 href={project.href}
                                 className="bg-primary font-bold text-black px-6 py-2 rounded h-max"
                                 target={"_blank"}
                             >
                                 visit
-                            </Link>
+                            </Link>}
                         </AccordionTrigger>
                         <AccordionContent>
                             <p className="mb-4">
@@ -68,7 +67,6 @@ function ProjectList() {
                             </div>
                         </AccordionContent>
                     </AccordionItem>
-
                 ))
             }
         </AccordionRoot>

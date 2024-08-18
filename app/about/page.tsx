@@ -2,22 +2,15 @@ import "../globals.css";
 import Image from "next/image";
 import me from "@public/images/me.jpg";
 import GradientBg from "@components/gradient/gradient-bg";
-import Link from "next/link";
-
+import Header from "@components/header/header";
+import Contact from "@components/contact/contact";
 function page() {
   return (
     <>
       <GradientBg />
       <div className="mx-auto min-h-dvh px-3">
         {/* header */}
-        <div className="flex flex-col items-center tablet:items-center mx-auto max-w-[1280px] w-full py-6 mb-6 tablet:mb-10">
-          <div className="flex w-full justify-between">
-            <menu className="py-2 w-max self-end text-sm">
-              <Link href='./'>Yong</Link>
-            </menu>
-            <menu className="py-2 w-max self-end text-sm">Menu</menu>
-          </div>
-        </div>
+        <Header />
         {/* infos */}
         <div className="mb-4 tablet:mb-0 max-w-[1280px] w-full mx-auto tablet:flex justify-center gap-[200px] shrink-0">
           <div className=" shrink-0">
@@ -82,13 +75,7 @@ function page() {
           </div>
         </div>
         {/* contact */}
-        <div className="hidden self-end tablet:flex justify-end w-full max-w-[1280px] mx-auto">
-          <div className="text-sm tablet:flex flex-col gap-1">
-            <div>Contact</div>
-            <div>Linkedin</div>
-            <div>Github</div>
-          </div>
-        </div>
+        <Contact />
       </div>
     </>
   );
