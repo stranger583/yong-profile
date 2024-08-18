@@ -1,6 +1,5 @@
-'use client'
-import dynamic from "next/dynamic";
 import "./globals.css";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import fuji from "@public/images/fuji.jpg";
 import Link from "next/link";
@@ -16,10 +15,14 @@ export default function Home() {
     <div className="w-full pb-10">
       <div className="w-full h-dvh relative mb-10">
         <Ripper />
-        <div className="flex flex-col items-center tablet:items-start max-w-[1280px] absolute -translate-x-1/2 top-0 left-1/2 w-full h-full z-10 p-6">
-          <div className="flex w-full justify-between">
-            <menu className="py-2 w-max self-end text-sm">Yong</menu>
-            <menu className="py-2 w-max self-end text-sm">Menu</menu>
+        <div className="flex flex-col items-center tablet:items-start max-w-[1280px] absolute -translate-x-1/2 top-0 left-1/2 w-full h-full z-10">
+          <div className="flex flex-col items-center tablet:items-center mx-auto max-w-[1280px] w-full py-6 mb-6 tablet:mb-10">
+            <div className="flex w-full justify-between">
+              <menu className="py-2 w-max self-end text-sm">
+                <Link href='./'>Yong</Link>
+              </menu>
+              <menu className="py-2 w-max self-end text-sm">Menu</menu>
+            </div>
           </div>
           <div className="my-10 tablet:my-0 p-2 tablet:p-0 tablet:h-16 flex text-base tablet:text-2xl tablet:items-center tablet:absolute tablet:-translate-x-1/2 tablet:-translate-y-1/2 top-1/2 left-1/2">
             <div className="w-max px-2 border-r tablet:px-9">Yong Chen </div>
@@ -28,9 +31,7 @@ export default function Home() {
             </div>
           </div>
           <p className="text-center tablet:text-left absolute bottom-5 w-10/12 text-sm text-wrap tablet:text-base tablet:max-w-[600px]">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
-            doloremque error debitis veniam similique. Corporis vitae vero sequi
-            voluptates adipisci{" "}
+            A frontend developer skilled in React and Next.js, focused on implementing best practices to create exceptional websites.
           </p>
           <div className="flex max-w-40 flex-col items-center absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 tablet:translate-x-0 tablet:-translate-y-0 tablet:right-auto tablet:bottom-5 self-end">
             <Image
@@ -43,13 +44,14 @@ export default function Home() {
             <Link
               href={"./about"}
               className="block border rounded py-1 w-full text-center hover:bg-white hover:text-black"
+              prefetch
             >
               visit
             </Link>
           </div>
         </div>
       </div>
-      <ProjectList/>
+      <ProjectList />
     </div>
   );
 }
