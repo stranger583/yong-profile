@@ -20,9 +20,9 @@ export const Projects = [
     compony: "Lion Travel",
     href: "",
     images: [
-      { alt: "xin-flight-1", url: "/images/fuji.jpg" },
-      { alt: "xin-flight-2", url: "/images/fuji.jpg" },
-      { alt: "xin-flight-3", url: "/images/fuji.jpg" },
+      { alt: "xin-flight-1", url: "/images/xin-flight-1.png" },
+      { alt: "xin-flight-2", url: "/images/xin-flight-2.png" },
+      { alt: "xin-flight-3", url: "/images/xin-flight-3.png" },
     ],
     desc: `Led the end-to-end frontend development of the Xin Flight project, from conception to completion. Assisted in implementing Server-Side Rendering ( SSR ) for the company's website, significantly enhancing user experience and SEO performance.`,
     tags: ["NextJS", "Typescript", "Tailwind CSS"],
