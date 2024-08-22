@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import { type ProjectProps, type ProjectImageProps, Projects } from "@constants//projects"
 import {
     AccordionRoot,
@@ -8,6 +10,8 @@ import {
     AccordionTrigger,
     AccordionItem,
 } from "@components/ui/accordion";
+
+const Skeleton = dynamic(() => import('../ui/skeleton'))
 
 
 function ProjectList() {
@@ -38,6 +42,7 @@ function ProjectList() {
                                 href={project.href}
                                 className="bg-primary font-bold text-black px-6 py-2 rounded h-max"
                                 target={"_blank"}
+                                prefetch
                             >
                                 visit
                             </Link>}
@@ -54,14 +59,16 @@ function ProjectList() {
                             </div>
                             <div className="flex w-full flex-wrap gap-2 tablet:gap-0">
                                 {project.images.map((image: ProjectImageProps) => (
-                                    <Image
-                                        key={image.alt}
-                                        src={image.url}
-                                        alt={image.alt}
-                                        width={400}
-                                        height={200}
-                                        className="max-h-52 tablet:w-1/3 tablet:px-1 object-cover"
-                                    />
+                                    <Suspense key={image.alt} fallback={<Skeleton className="w-[400px] h-[200px]" />}>
+                                        <Image
+                                            key={image.alt}
+                                            src={image.url}
+                                            alt={image.alt}
+                                            width={400}
+                                            height={200}
+                                            className="max-h-52 tablet:w-1/3 tablet:px-1 object-cover"
+                                        />
+                                    </Suspense>
 
                                 ))}
                             </div>

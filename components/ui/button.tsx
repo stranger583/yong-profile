@@ -10,7 +10,7 @@ interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
 function Button({ className, children, ...props }: ButtonProps) {
     return (
         <button
-            className={cN('', className)}
+            className={cN('disabled:text-secondaryText disabled:pointer-events-none disabled:cursor-not-allowed', className)}
             {...props}
         >{children}</button>
     )

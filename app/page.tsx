@@ -6,13 +6,15 @@ import Link from "next/link";
 import ProjectList from "@components/project-list/project-list";
 import Header from "@components/header/header";
 import HomeTitle from "@components/home-title/home-title";
+import CurveLoading from "@components/curve-loading/curve-loading";
 const Ripper = dynamic(() => import("../components/ripper/ripper"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <div className="fixed top-0 left-0 z-[70] bg-background w-full h-dvh "></div>,
 });
 
 export default function Home() {
   return (
     <>
+      <CurveLoading />
       <Ripper />
       <div className="relative mx-auto min-h-dvh mb-5 tablet:mb-10 px-3">
         <Header />

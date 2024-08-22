@@ -19,15 +19,15 @@ function Menu() {
             <DrawerTrigger className="py-2 w-max self-end text-sm">
                 Menu
             </DrawerTrigger>
-            <DrawerContent className="p-4 border border-border">
+            <DrawerContent className="p-4 border border-border bg-background/80">
                 <DrawerHeader className="border-b border-border mb-2">
                     <DrawerTitle className="mb-1 font-bold">Menu</DrawerTitle>
                 </DrawerHeader>
                 <DrawerHeader>
                     <DrawerTitle className="mb-4">Action</DrawerTitle>
                     <DrawerDescription className="flex flex-col gap-2">
-                        <DrawerClose>
-                            <Button type="button">Lang</Button>
+                        <DrawerClose className="disabled:text-secondaryText disabled:pointer-events-none disabled:cursor-not-allowed'" disabled>
+                            <Button type="button" disabled>Lang</Button>
                         </DrawerClose>
                     </DrawerDescription>
                 </DrawerHeader>
@@ -35,10 +35,10 @@ function Menu() {
                     <DrawerTitle className="mb-4 text-center">Navigation</DrawerTitle>
                     <DrawerDescription className="flex flex-col gap-2">
                         <DrawerClose>
-                            <Link href='./'>Home</Link>
+                            <Link href='./' prefetch>Home</Link>
                         </DrawerClose>
                         <DrawerClose>
-                            <Link href='./about'>About</Link>
+                            <Link href='./about' prefetch>About</Link>
                         </DrawerClose>
                     </DrawerDescription>
                 </DrawerFooter>

@@ -4,7 +4,7 @@ import { Space_Grotesk } from "next/font/google";
 import { cN } from "@utils/tw-marge";
 
 export const metadata: Metadata = {
-  title: "Yong",
+  title: "Yong | About",
   description: "Yong Hua Chen's Profile",
 };
 
