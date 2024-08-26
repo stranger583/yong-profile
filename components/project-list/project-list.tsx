@@ -12,7 +12,9 @@ import {
 } from "@components/ui/accordion";
 
 const Skeleton = dynamic(() => import('../ui/skeleton'))
-
+const LazyImage = dynamic(() => import('next/image'), {
+    ssr: false
+});
 
 function ProjectList() {
     return (
@@ -54,13 +56,12 @@ function ProjectList() {
                             <div className="flex gap-2 mb-4">
                                 {project.tags.map((tag: string) => (
                                     <div key={tag} className="bg-tag rounded-full px-3 py-1 text-sm">{tag}</div>
-
                                 ))}
                             </div>
                             <div className="flex w-full flex-wrap gap-2 tablet:gap-0">
                                 {project.images.map((image: ProjectImageProps) => (
                                     <Suspense key={image.alt} fallback={<Skeleton className="w-[400px] h-[200px]" />}>
-                                        <Image
+                                        <LazyImage
                                             key={image.alt}
                                             src={image.url}
                                             alt={image.alt}

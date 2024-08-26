@@ -19,7 +19,7 @@ function GradientBg() {
 
   return (
     <div
-      className="absolute top-0 left-0 w-dvw h-full tablet:h-dvh -z-10"
+      className="absolute top-0 left-0 w-full h-full tablet:h-dvh -z-10"
       style={{ height: totalHeight }}
     >
       <Canvas>

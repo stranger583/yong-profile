@@ -15,7 +15,7 @@ export default function Ripper() {
   const aspect = device.width / device.height;
 
   return (
-    <div className="absolute top-0 left-0 w-dvw h-dvh -z-10">
+    <div className="absolute top-0 left-0 w-full h-dvh -z-10">
       <Canvas>
         <OrthographicCamera
           makeDefault
