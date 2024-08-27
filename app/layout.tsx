@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import { cN } from "@utils/tw-marge";
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 export const metadata: Metadata = {
   title: "Yong | About",
   description: "Yong Hua Chen's Profile",
@@ -15,7 +15,6 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 });
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cN(spaceGrotesk.className,'relative')}>{children}</body>
+      <GoogleAnalytics gaId="G-GD7MT0KN8F" />
     </html>
   );
 }
