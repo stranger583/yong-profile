@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Suspense } from "react";
+import Shimmer from "@components/simmer/simmer";
 import dynamic from "next/dynamic";
 import { type ProjectProps, type ProjectImageProps, Projects } from "@constants//projects"
 import {
@@ -11,10 +11,10 @@ import {
     AccordionItem,
 } from "@components/ui/accordion";
 
-const Skeleton = dynamic(() => import('../ui/skeleton'))
-const LazyImage = dynamic(() => import('next/image'), {
-    ssr: false
-});
+const toBase64 = (str: string) =>
+    typeof window === "undefined"
+        ? Buffer.from(str).toString("base64")
+        : window.btoa(str);
 
 function ProjectList() {
     return (
@@ -60,17 +60,15 @@ function ProjectList() {
                             </div>
                             <div className="flex w-full flex-wrap gap-2 tablet:gap-0">
                                 {project.images.map((image: ProjectImageProps) => (
-                                    <Suspense key={image.alt} fallback={<Skeleton className="w-[400px] h-[200px]" />}>
-                                        <LazyImage
-                                            key={image.alt}
-                                            src={image.url}
-                                            alt={image.alt}
-                                            width={400}
-                                            height={200}
-                                            className="max-h-52 tablet:w-1/3 tablet:px-1 object-cover"
-                                        />
-                                    </Suspense>
-
+                                    <Image
+                                        key={image.alt}
+                                        src={image.url}
+                                        alt={image.alt}
+                                        width={400}
+                                        height={200}
+                                        className="max-h-52 tablet:w-1/3 tablet:px-1 object-cover"
+                                        placeholder={`data:image/svg+xml;base64,${toBase64(Shimmer(400, 200))}`}
+                                    />
                                 ))}
                             </div>
                         </AccordionContent>

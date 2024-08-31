@@ -2,13 +2,11 @@ import "../globals.css";
 import Image from "next/image";
 import me from "@public/images/me.jpg";
 import GradientBg from "@components/gradient/gradient-bg";
-import CurveLoading from "@components/curve-loading/curve-loading";
 import Header from "@components/header/header";
 import Contact from "@components/contact/contact";
 function page() {
   return (
     <>
-      <CurveLoading />
       <GradientBg />
       <div className="mx-auto min-h-dvh px-3">
         {/* header */}
@@ -27,6 +25,7 @@ function page() {
                   src={me}
                   alt="me"
                   className="size-52 object-cover my-8 "
+                  placeholder="blur"
                 />
               </div>
               <div className="text-secondaryText">based in Taiwan</div>

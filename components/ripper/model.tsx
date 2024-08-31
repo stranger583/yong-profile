@@ -9,7 +9,7 @@ import useDimension from "@hooks/useDimension";
 import { vertex } from "./vertex";
 import { fragment } from "./fragment";
 import brush from "@public/images/ripples-brush.png";
-import fish from "@public/images/fish.jpg";
+import fish from "@public/images/fish.webp";
 
 export default function Model() {
   const { viewport } = useThree();
