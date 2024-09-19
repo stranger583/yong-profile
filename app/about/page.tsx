@@ -16,7 +16,7 @@ function page() {
           <div className=" shrink-0">
             <div className="flex flex-col items-center mb-10">
               <div className="text-3xl">Yong Hua Chen</div>
-              <div className="text-secondaryText">Frond End Developer</div>
+              <div className="text-secondaryText">Front End Developer</div>
               <div className="relative">
                 <h1 className="text-primary absolute -rotate-90 bottom-12 -left-3 font-bold text-[52px] w-max -translate-x-1/2 -translate-y-1/2 font-serif">
                   About me

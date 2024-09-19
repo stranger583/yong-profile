@@ -32,7 +32,7 @@ export default function Home() {
               placeholder="blur"
             />
             <div className="mb-1 text-center">Yong Hua Chen</div>
-            <div className="mb-5">Frond End Developer</div>
+            <div className="mb-5">Front End Developer</div>
             <Link
               href={"./about"}
               className="block border rounded py-1 w-full text-center hover:bg-white hover:text-black"

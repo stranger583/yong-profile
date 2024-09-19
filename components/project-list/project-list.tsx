@@ -32,7 +32,7 @@ function ProjectList() {
                     >
                         <AccordionTrigger>
                             <div className="flex flex-col tablet:flex-row grow">
-                                <div className="tablet:w-1/5 text-xs mb-2 text-start">
+                                <div className="tablet:w-[225px] text-xs mb-2 text-start">
                                     {project.date}
                                 </div>
                                 <div className="tablet:w-1/5">
