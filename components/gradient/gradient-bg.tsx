@@ -1,6 +1,6 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Gradient from "@components/gradient/gradient";
 
 function GradientBg() {
